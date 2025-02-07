@@ -5,6 +5,7 @@
 
     /*Colors*/
     --primario: #784D3C;
+    --secundario:#bab55c;
     --gris: #e1e1e1;
     --blanco: #ffffff;
     --negro: #000000;
@@ -36,6 +37,7 @@ body {
 
 a {
 text-decoration: none;
+transition: all 0.2s ease;
 }
 
 h1, h2, h3, h4 {
@@ -167,12 +169,26 @@ img {
     font-weight: 700;
     margin-bottom: 2rem;
     border-radius: 1rem;
+    transition: all 0.3s ease-in-out; /* Transición suave para todas las propiedades */
 }
 
 @media (min-width: 768px) {
     .boton {
         display: inline-block; /*El display inline ignora los width y los margin, así que se usa inline:block*/
     }
+}
+
+
+
+.boton:hover {
+    cursor: pointer;   
+    background-color: var(--secundario);
+    transform: scale(1.05); /* Aumenta tamaño un 5% */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+a:hover {
+    transform: translateY(-2px); /* Movimiento sutil hacia arriba */
 }
 
 .boton--primario {
@@ -198,12 +214,16 @@ img {
     margin-bottom: none;
 }
 
-.widget-curso__label {
+.widget-curso__label,
+.curso__label {
     font-family: var(--fontHeading);
+    font-size: 2rem;
     font-weight: 700;
+    text-align: center;
 }
 
-.widget-curso__info {
+.widget-curso__info,
+.curso__info {
     font-weight: normal;
 }
 
@@ -220,3 +240,78 @@ img {
     margin-bottom: 2.5rem;
 }
 
+/* Sobre Nosotros */
+
+.sobre--nosotros {
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .sobre--nosotros {
+       display: grid; 
+       grid-template-columns: repeat(2, 1fr);
+       column-gap: 2rem;
+    }
+}
+
+/* Cursos */
+
+.curso {
+    padding: 3rem 0;
+    border-bottom: solid var(--gris);
+}
+
+.curso img {
+    border-radius: 1rem;
+}
+
+@media (min-width: 768px) {
+    .curso {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        column-gap: 2rem;
+    }
+}
+
+.curso:last-of-type {
+    border: none;
+}
+
+/* Contacto */
+
+.contacto-bg {
+    background-image: url(../resources/contacto.jpg);
+    height: 40rem;
+    background-size: cover;
+    border-radius: 1rem;
+}
+
+/* Contacto */
+
+.formulario {
+    background-color: var(--gris);
+    margin: -5rem auto 0 auto;
+    width: 95%;
+    padding: 5rem;
+    border-radius: 1rem;
+}
+
+.campo {
+    display: flex;
+    margin-bottom: 2rem;
+    text-align: right;
+    gap: 2rem;
+}
+
+.campo__label {
+    flex: 0 0 9rem;
+}
+
+.campo__field {
+    flex: 1; /*como el label no tiene factor de crecimiento (0), y el flex tiene 1, el flex tomará todo el espacio disponible*/
+    border: 1px solid var(--primario);
+}
+
+.campo__field--textArea {
+    height: 15rem;
+}
