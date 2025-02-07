@@ -288,6 +288,14 @@ a:hover {
 
 /* Contacto */
 
+.titulo-campo {
+    text-align: center;
+    font-family:var(--fontHeading);
+    font-weight: 700;
+    text-transform: uppercase;
+    padding-bottom: 2rem;
+}
+
 .formulario {
     background-color: var(--gris);
     margin: -5rem auto 0 auto;
@@ -310,8 +318,41 @@ a:hover {
 .campo__field {
     flex: 1; /*como el label no tiene factor de crecimiento (0), y el flex tiene 1, el flex tomará todo el espacio disponible*/
     border: 1px solid var(--primario);
+    border-radius: 1rem;
 }
+
+
 
 .campo__field--textArea {
     height: 15rem;
+}
+
+@media (max-width: 468px) {
+    .campo  {
+        flex-wrap: wrap;
+        gap: 1rem; /* Reducir espacio entre elementos */
+    }
+    
+    /* ESPECÍFICO PARA EL LABEL DEL MENSAJE */
+    .campo:last-of-type .campo__label {
+        flex: 0 0 100%; /* Ocupa todo el ancho */
+        margin-bottom: 1rem; /* Espacio debajo del label */
+    }
+    
+    /* AJUSTES GENERALES PARA TODOS LOS CAMPOS */
+    .campo__label {
+        flex: 0 0 100%; /* Todos los labels ocupan ancho completo */
+        font-size: 15px;
+        font-weight: 600;
+        text-align: start;
+    }
+    
+    .campo__field {
+        width: 100%; /* Asegura que ocupe todo el ancho */
+        height: 4rem; /* Altura automática */
+    }
+    
+    .campo__field--textArea {
+        height: 10rem; /* Altura más apropiada para móvil */
+    }
 }
